@@ -1,0 +1,85 @@
+/* Only applies on video pages (ytd-watch-flexy exists only on /watch) */
+
+/* Top-right: Create button, notifications, avatar */
+ytd-masthead #end { display: none !important; }
+
+/* Left mini sidebar (the guide drawer stays openable via the hamburger) */
+ytd-mini-guide-renderer,
+ytd-watch-flexy ~ tp-yt-app-drawer { display: none !important; }
+
+/* Right sidebar: recommended videos, chips (All / From channel / ...) */
+ytd-watch-flexy #related,
+ytd-watch-flexy yt-related-chip-cloud-renderer,
+ytd-watch-flexy ytd-watch-next-secondary-results-renderer { display: none !important; }
+
+/* The sidebar only exists when a playlist is playing (html.ytfm-playlist, set by content.js) */
+html:not(.ytfm-playlist) ytd-watch-flexy #secondary { display: none !important; }
+
+/* ...and inside it, keep only the playlist panel (click its header to collapse/expand) */
+ytd-watch-flexy #secondary-inner > *:not(#playlist):not(ytd-playlist-panel-renderer) { display: none !important; }
+
+/* Below the video: merch, ads, engagement panels (description stays visible) */
+ytd-watch-flexy ytd-merch-shelf-renderer,
+ytd-watch-flexy ytd-video-description-ad-v3-renderer,
+ytd-watch-flexy #below > ytd-engagement-panel-section-list-renderer { display: none !important; }
+
+/* Comments: collapsed by default, shown when the toggle button is clicked */
+html:not(.ytfm-comments-open) ytd-watch-flexy ytd-comments#comments { display: none !important; }
+
+#ytfm-comments-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 16px 0;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--yt-spec-badge-chip-background, rgba(255,255,255,0.1));
+  color: var(--yt-spec-text-primary, #fff);
+  font: 500 16px/1.4 "Roboto", "Arial", sans-serif;
+  cursor: pointer;
+}
+#ytfm-comments-toggle:hover { background: var(--yt-spec-button-chip-background-hover, rgba(255,255,255,0.2)); }
+#ytfm-comments-toggle .ytfm-arrow { transition: transform 0.2s; }
+html.ytfm-comments-open #ytfm-comments-toggle .ytfm-arrow { transform: rotate(180deg); }
+
+/* Live chat panel (the playlist panel is kept) */
+ytd-watch-flexy #chat { display: none !important; }
+
+/* End-screen cards and suggested videos shown inside the player */
+.ytp-ce-element,
+.ytp-endscreen-content,
+.ytp-suggestion-set,
+.ytp-pause-overlay { display: none !important; }
+
+/* No playlist: the player/primary column uses the full width */
+html:not(.ytfm-playlist) ytd-watch-flexy[flexy] #primary,
+html:not(.ytfm-playlist) ytd-watch-flexy[flexy] #primary-inner {
+  max-width: none !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+html:not(.ytfm-playlist) ytd-watch-flexy[flexy]:not([theater]) #columns { max-width: none !important; }
+
+/* Playlist playing: player on the left, playlist panel on the right */
+html.ytfm-playlist ytd-watch-flexy[flexy]:not([theater]) #columns {
+  display: flex !important;
+  max-width: none !important;
+}
+html.ytfm-playlist ytd-watch-flexy[flexy]:not([theater]) #primary {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+html.ytfm-playlist ytd-watch-flexy[flexy]:not([theater]) #secondary {
+  display: block !important;
+  flex: 0 0 402px !important;
+  width: 402px !important;
+  min-width: 0 !important;
+}
+/* Narrow windows: stack the playlist under the player */
+@media (max-width: 1000px) {
+  html.ytfm-playlist ytd-watch-flexy[flexy]:not([theater]) #columns { flex-direction: column !important; }
+  html.ytfm-playlist ytd-watch-flexy[flexy]:not([theater]) #secondary { flex: 0 0 auto !important; width: 100% !important; }
+}

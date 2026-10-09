@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keep it Clean for YT</title>
+  <meta name="description" content="A free browser extension that declutters YouTube video pages: no recommendations, comments behind a toggle, playlists kept.">
+  <link rel="icon" href="assets/logo.png">
+  <style>
+    :root { --navy:#061f45; --blue:#165da0; --bg:#f6f9fd; --card:#fff; --text:#14213d; --muted:#5b6b86; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0b1220; --card:#121b2e; --text:#e8eefb; --muted:#9db0cf; --navy:#e8eefb; --blue:#5aa2e6; }
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+    .wrap { max-width:760px; margin:0 auto; padding:0 20px; }
+    header { text-align:center; padding:56px 0 32px; }
+    header img { width:128px; height:128px; border-radius:50%; background:#fff; }
+    h1 { margin:16px 0 8px; font-size:2.2rem; color:var(--navy); letter-spacing:-0.02em; }
+    .tag { color:var(--muted); font-size:1.1rem; margin:0 auto 24px; max-width:520px; }
+    .btn { display:inline-block; background:var(--blue); color:#fff; text-decoration:none; padding:14px 28px; border-radius:12px; font-weight:600; }
+    .btn:hover { filter:brightness(1.1); }
+    .btn.alt { background:transparent; color:var(--blue); border:2px solid var(--blue); margin-left:8px; }
+    section { background:var(--card); border-radius:16px; padding:24px 28px; margin:20px 0; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+    h2 { margin:0 0 12px; font-size:1.25rem; color:var(--navy); }
+    ul, ol { margin:0; padding-left:1.2em; }
+    li { margin:6px 0; }
+    code { background:rgba(22,93,160,.12); padding:2px 6px; border-radius:6px; font-size:.92em; }
+    footer { text-align:center; color:var(--muted); font-size:.88rem; padding:24px 0 48px; }
+    a { color:var(--blue); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="assets/logo.png" alt="Keep it Clean logo">
+      <h1>Keep it Clean for YT</h1>
+      <p class="tag">Watch videos without the clutter. Free, open source, no tracking.</p>
+      <a class="btn" href="downloads/keep-it-clean.zip">Download v1.0</a>
+      <a class="btn alt" href="https://github.com/">View on GitHub</a>
+    </header>
+
+    <section>
+      <h2>What it does</h2>
+      <ul>
+        <li>Hides the recommended-videos sidebar and end-screen suggestions.</li>
+        <li>Tucks comments behind a <b>Show comments</b> button.</li>
+        <li>Keeps the description, title and like / share buttons where they are.</li>
+        <li>Playing a playlist? Its panel stays on the right and collapses with a click.</li>
+        <li>Removes the Create / notifications buttons from the top bar.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How to install (Chrome, Edge, Brave and other Chromium browsers)</h2>
+      <ol>
+        <li>Download the zip above and <b>unzip it into a folder</b>. Keep the folder; the browser loads the extension from it.</li>
+        <li>Open <code>chrome://extensions</code> (or <code>edge://extensions</code>).</li>
+        <li>Turn on <b>Developer mode</b> (top right).</li>
+        <li>Click <b>Load unpacked</b> and select the unzipped folder.</li>
+        <li>Open any YouTube video.</li>
+      </ol>
+      <p style="color:var(--muted);margin:12px 0 0">Chrome may occasionally remind you that a developer-mode extension is installed. That is expected for extensions installed this way.</p>
+    </section>
+
+    <section>
+      <h2>Privacy</h2>
+      <p style="margin:0">It collects nothing and sends nothing anywhere. It only runs on youtube.com and only changes how the page looks.</p>
+    </section>
+
+    <footer>
+      Not affiliated with or endorsed by YouTube or Google. "YouTube" is a trademark of Google LLC.
+    </footer>
+  </div>
+</body>
+</html>

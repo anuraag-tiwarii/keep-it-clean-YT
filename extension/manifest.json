@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Keep it Clean for YT",
+  "version": "1.0",
+  "description": "Declutters video pages: hides recommendations and extra buttons, and tucks comments behind a toggle so you can focus on the video.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "css": ["focus.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
